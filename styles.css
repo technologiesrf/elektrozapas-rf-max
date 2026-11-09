@@ -289,3 +289,52 @@ h2 i{font-weight:normal;font-style:italic;color:var(--pine)}
  .product-photo-panel img{max-height:267px}
 }
 @media(max-width:360px){.mobile-product-bar div strong{font-size:21px}.mobile-product-bar .button-primary{font-size:13px;padding-inline:10px}}
+
+/* Электрозапас РФ — исправления v7.4 */
+
+/* Цена: тёмно-синяя, читаемая на светлом фоне */
+.model-price,
+.product-price,
+#detailPrice,
+#mobileProductPrice {
+  color: #1A2A4A !important;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Главные кнопки: бронза с тёмным текстом */
+.button-primary {
+  background: #C4A35A;
+  color: #1A2A4A;
+  border-color: #C4A35A;
+  min-height: 52px;
+  font-weight: 800;
+}
+
+/* Мобильная версия */
+@media (max-width: 600px) {
+  .model-card {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .model-card p,
+  .model-card small {
+    font-size: 14px;
+  }
+
+  .model-card button,
+  .button-primary,
+  #mobileProductOrder,
+  .header-contact {
+    min-height: 48px;
+    font-size: 15px;
+  }
+
+  .product-price,
+  #detailPrice {
+    font-size: clamp(30px, 8vw, 42px);
+    line-height: 1.15;
+  }
+}
+
