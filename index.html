@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F7F4EF" />
+  <meta name="color-scheme" content="light" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="Электрозапас РФ. Системы резервного питания для дома и бизнеса. Подбор под ваши приборы. Монтаж рассчитывается отдельно." />
+  <title>Электрозапас РФ — когда свет отключают, у вас он остаётся</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" href="app.js" as="script" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Перейти к содержимому</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" id="logoHome" aria-label="Электрозапас РФ — на главную">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="44" height="44" rx="11" fill="#1A2A4A" />
+          <path d="M15 14H32M15 24H28M15 34H32" stroke="#F7F4EF" stroke-width="3.6" stroke-linecap="round" />
+          <path d="M27 14C34 17 34 31 27 34" stroke="#F7F4EF" stroke-width="3.6" stroke-linecap="round" />
+        </svg>
+        <span class="brand-wordmark"><strong>Электрозапас <i>РФ</i></strong><small>Резервное питание</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <a href="#systems">Системы и цены</a>
+        <a href="#how">Как это работает</a>
+        <a href="#about">О нас</a>
+      </nav>
+      <button type="button" class="header-contact" data-open-lead>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 11.4V6.5A2.5 2.5 0 0 0 17.5 4h-11A2.5 2.5 0 0 0 4 6.5v10A2.5 2.5 0 0 0 6.5 19H14"/><path d="M4.7 6l6.1 4.8a2 2 0 0 0 2.4 0L19.4 6"/><path d="M17 16.5h6M20 13.5v6" /></svg>
+        Связаться
+      </button>
+    </div>
+  </header>
+
+  <div id="landing-view">
+    <main id="main-content">
+      <section class="hero container" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="hero-eyebrow"><span class="eyebrow-dot"></span> Резервное питание для ЛНР</p>
+          <h1 id="heroTitle">Когда свет отключают <span>без предупреждения —</span> <em>у вас он остаётся.</em></h1>
+          <p class="hero-automatic">Автоматически.</p>
+          <p class="hero-description">Холодильник, интернет, освещение и котёл могут продолжать работать от аккумулятора. Подберём систему под ваши приборы.</p>
+          <button type="button" class="button-primary hero-cta" data-open-lead>Подобрать систему <span aria-hidden="true">↗</span></button>
+          <p class="hero-underbutton">Цену оборудования назовём сразу. Монтаж — отдельно.</p>
+        </div>
+        <div class="hero-visual" id="heroVisual" role="img" aria-label="Ночной дом. В районе отключают электричество, затем окна дома мягко загораются благодаря резервному питанию.">
+          <svg class="house-scene" viewBox="0 0 760 550" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="eveningSky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1A2A4A"/><stop offset="1" stop-color="#19253E"/></linearGradient>
+              <linearGradient id="mainWall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3B4A63"/><stop offset="1" stop-color="#25324B"/></linearGradient>
+              <linearGradient id="roof" x1="0" y1="0" x2="0.9" y2="1"><stop stop-color="#27364D"/><stop offset="1" stop-color="#101B32"/></linearGradient>
+              <linearGradient id="glazing" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFF4D9"/><stop offset="1" stop-color="#E8CCA2"/></linearGradient>
+              <radialGradient id="warmAura"><stop stop-color="#FFE9BE" stop-opacity=".31"/><stop offset=".63" stop-color="#FFE4B2" stop-opacity=".13"/><stop offset="1" stop-color="#FFE4B2" stop-opacity="0"/></radialGradient>
+              <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2A3A47"/><stop offset="1" stop-color="#152333"/></linearGradient>
+            </defs>
+            <path d="M0 392C147 374 231 386 343 378C453 369 643 362 760 390V550H0Z" fill="url(#ground)" />
+            <path d="M0 423C155 406 270 417 389 405C519 392 650 398 760 412" stroke="#516071" stroke-opacity=".28" stroke-width="2" fill="none"/>
+            <g class="far-street">
+              <path d="M6 357L71 315L135 356V411H6Z" fill="#27354D"/><path d="M-1 358L71 308L141 358" fill="none" stroke="#53617A" stroke-opacity=".6" stroke-width="6" stroke-linejoin="round"/>
+              <rect x="36" y="365" width="25" height="27" rx="2" fill="#29374C"/><rect x="82" y="365" width="25" height="27" rx="2" fill="#29374C"/>
+              <path d="M635 333L697 291L760 329V410H635Z" fill="#27354D"/><path d="M626 338L697 287L765 334" fill="none" stroke="#53617A" stroke-opacity=".55" stroke-width="6"/>
+              <rect class="neighborhood-light" x="670" y="350" width="26" height="30" fill="#DDD4B8" opacity=".55"/>
+            </g>
+            <g class="tree-lines" fill="#1D3241"><path d="M54 409V319l-31 42 12 3-20 31 39-12 36 12-20-31 12-3-28-42Z"/><path d="M612 421V278l-42 61 16 5-28 46 54-17 50 18-26-47 16-5-40-61Z"/><path d="M729 420V302l-34 52 13 4-22 36 43-14 40 15-22-37 13-4-31-52Z"/></g>
+            <g class="front-garden"><path d="M114 443C172 415 249 415 324 434C400 449 477 427 555 428C612 430 665 443 700 449" fill="none" stroke="#56625B" stroke-width="3" stroke-opacity=".38"/><ellipse cx="430" cy="471" rx="172" ry="16" fill="#0E1A2B" opacity=".38"/></g>
+            <g class="main-house">
+              <ellipse class="house-aura" cx="383" cy="290" rx="310" ry="248" fill="url(#warmAura)"/>
+              <rect x="161" y="277" width="399" height="163" fill="url(#mainWall)"/>
+              <path d="M161 277L360 130L560 277H161Z" fill="#34435E"/>
+              <path d="M131 284L356 109L589 284L567 303L358 150L154 306Z" fill="url(#roof)" stroke="#657184" stroke-opacity=".45" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M145 285L358 125L576 286" fill="none" stroke="#728094" stroke-opacity=".45" stroke-width="2"/>
+              <path d="M185 291H544" stroke="#728094" stroke-opacity=".25" stroke-width="2"/>
+              <path d="M174 324H548M174 359H548M174 394H548" stroke="#8B98A3" stroke-opacity=".14" stroke-width="1.8" />
+              <path d="M352 151L352 271" stroke="#8B98A3" stroke-opacity=".24" stroke-width="1.6"/>
+              <rect x="320" y="201" width="79" height="59" rx="4" fill="#14233D" stroke="#87909C" stroke-width="6"/>
+              <rect class="window-light" x="325" y="206" width="69" height="49" rx="1" fill="url(#glazing)" />
+              <path d="M359 201V260M320 230H399" stroke="#667080" stroke-width="4"/>
+              <rect x="204" y="309" width="116" height="100" rx="3" fill="#101F37" stroke="#9399A0" stroke-width="7"/>
+              <rect class="window-light" x="209" y="314" width="106" height="90" fill="url(#glazing)"/>
+              <path d="M262 311V409M205 358H320" stroke="#616D79" stroke-width="6" />
+              <rect x="393" y="309" width="116" height="100" rx="3" fill="#101F37" stroke="#9399A0" stroke-width="7"/>
+              <rect class="window-light" x="398" y="314" width="106" height="90" fill="url(#glazing)"/>
+              <path d="M450 311V409M393 358H509" stroke="#616D79" stroke-width="6"/>
+              <path class="indoor-silhouette" d="M223 402V377H246V402M280 401V370H297V401M409 400V377H434V400M471 401V371H489V401" stroke="#42505E" stroke-width="5" stroke-opacity=".7"/>
+              <path d="M161 439H561" stroke="#8A91A0" stroke-opacity=".8" stroke-width="8"/>
+              <path d="M160 448H560" stroke="#212D3D" stroke-width="9"/>
+              <path d="M327 447L271 518H438L395 447Z" fill="#6E7280" opacity=".24"/>
+              <path d="M318 448L274 519M406 448L436 519" stroke="#717B83" stroke-opacity=".45" stroke-width="3"/>
+              <g fill="#2F4F4F"><ellipse cx="160" cy="438" rx="43" ry="32"/><ellipse cx="188" cy="442" rx="33" ry="24"/><ellipse cx="549" cy="437" rx="43" ry="31"/><ellipse cx="580" cy="441" rx="30" ry="25"/></g>
+              <path d="M148 429C159 422 168 422 178 428M544 429C555 422 568 423 578 432" stroke="#78918A" stroke-opacity=".33" stroke-width="2" fill="none"/>
+              <path class="window-reflection" d="M209 415L183 458L328 458L315 415M398 415L389 449L519 449L504 415" fill="#F6E4C2" opacity="0"/>
+            </g>
+            <g class="street-pole" opacity=".65"><path d="M60 276V415" stroke="#77869A" stroke-width="5"/><path d="M40 276H81" stroke="#77869A" stroke-width="4"/><path d="M59 276L69 291L80 276" stroke="#77869A" stroke-width="3" fill="none"/><path d="M81 277C108 278 117 281 133 285" fill="none" stroke="#8C99AB" stroke-opacity=".35" stroke-width="2"/></g>
+            <circle class="pole-light" cx="60" cy="285" r="5" fill="#F4E0B9" />
+            <g class="scene-detail"><path d="M0 495C172 485 347 479 492 485C647 490 715 481 760 480" stroke="#667A6A" stroke-opacity=".36" stroke-width="2" fill="none"/><path d="M0 513H760" stroke="#B3B09B" stroke-opacity=".15" stroke-width="3"/></g>
+          </svg>
+          <div class="scene-status">
+            <span class="scene-status-indicator"></span>
+            <span class="scene-status-text" id="sceneStatus">Сеть отключена. Резерв включён.</span>
+          </div>
+          <button type="button" class="replay-button" id="replayHero" aria-label="Повторить анимацию" title="Повторить анимацию">
+            <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8" aria-hidden="true"><path d="M20 11a8 8 0 1 1-3-6"/><path d="M20 4v6h-6"/></svg>
+          </button>
+          <p class="scene-disclaimer">Сцена иллюстрирует принцип резервного питания</p>
+        </div>
+      </section>
+
+      <section class="trust-strip container" id="about" aria-label="Наш подход">
+        <div class="trust-item"><span class="trust-index">01</span><div><strong>Под вашу задачу</strong><p>Подбираем под нужные приборы, а не по красивой цифре на корпусе</p></div></div>
+        <div class="trust-item"><span class="trust-index">02</span><div><strong>Цена заранее</strong><p>Стоимость оборудования известна до заказа</p></div></div>
+        <div class="trust-item"><span class="trust-index">03</span><div><strong>Монтаж отдельно</strong><p>Обсуждаем по вашему адресу и условиям подключения</p></div></div>
+      </section>
+
+      <section class="models-section section container" id="systems" aria-labelledby="modelsTitle">
+        <div class="section-heading"><div><p class="section-kicker">СИСТЕМЫ И ЦЕНЫ</p><h2 id="modelsTitle">Выберите, что должно <i>продолжать работать.</i></h2><p class="section-caption">Для начала — четыре понятных варианта. Остальные системы доступны по запросу.</p></div></div>
+        <div class="models-grid" id="modelsGrid"></div>
+        <div class="models-section-bottom"><button id="moreModels" class="quiet-link" type="button" aria-expanded="false">Показать все 7 моделей <span aria-hidden="true">↓</span></button><button type="button" class="button-primary compact-cta" data-open-lead>Помогите мне выбрать <span aria-hidden="true">↗</span></button></div>
+      </section>
+
+      <section class="steps-section" id="how" aria-labelledby="stepsTitle"><div class="container">
+        <div class="steps-head"><p class="section-kicker">ПРОСТОЙ ПОРЯДОК</p><h2 id="stepsTitle">Не нужно разбираться <i>в инверторах.</i></h2></div>
+        <div class="steps-grid">
+          <div class="step"><span class="step-number">01</span><h3>Расскажите, что важно</h3><p>Например, холодильник, интернет, свет и котёл. Можно своими словами.</p></div>
+          <div class="step"><span class="step-number">02</span><h3>Получите подбор</h3><p>Рассчитаем нужную мощность и приблизительное время работы выбранных приборов.</p></div>
+          <div class="step"><span class="step-number">03</span><h3>Согласуем детали</h3><p>Уточним модель, цену оборудования, доставку и условия монтажа.</p></div>
+        </div>
+      </div></section>
+
+      <section class="final-cta container" aria-label="Оставить заявку">
+        <div><p class="section-kicker">НАЧНЁМ С ГЛАВНОГО</p><h2>Пусть отключают свет.<br /><i>Ваши планы не должны останавливаться.</i></h2><p>Скажите, что нужно сохранить. Поможем подобрать систему.</p></div>
+        <button type="button" class="button-primary" data-open-lead>Подобрать систему <span aria-hidden="true">↗</span></button>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><div class="footer-brand"><strong>Электрозапас РФ</strong><span>Резервное питание для дома и бизнеса</span></div><div>Монтаж обсуждается отдельно.</div><div class="footer-fine">Цены в демонстрационной версии — рабочие ориентиры. Параметры подключения и время перехода на резерв уточняются для выбранной системы.</div></div></footer>
+  </div>
+
+  <div id="product-view" hidden>
+    <main class="container product-page" id="productMain">
+      <button type="button" class="back-link" id="backToCatalog" aria-label="Вернуться к каталогу">← Вернуться к системам</button>
+      <div class="product-layout">
+        <div class="product-photo-panel"><div class="product-photo-glow"></div><img id="detailImg" decoding="async" src="assets/home5.webp" alt="Корпус резервного питания"/><div class="photo-caption" id="detailPhotoCaption">Фото корпуса UBetter из предоставленного видео</div></div>
+        <div class="product-information">
+          <p class="section-kicker">СИСТЕМА РЕЗЕРВНОГО ПИТАНИЯ</p>
+          <h1 id="detailName">ДОМ 5</h1>
+          <p class="product-one-liner" id="detailSubtitle">Ваш домашний резерв на случай отключений</p>
+          <div class="product-specs" id="detailSpecs">5 кВт <span></span> 5,12 кВт·ч</div>
+          <div class="product-purchase"><p class="product-price" id="detailPrice">194 600 ₽</p><p>Монтаж отдельно.</p></div>
+          <h2 class="benefits-heading">Что это меняет для вас</h2>
+          <ul class="benefits" id="detailBenefits"></ul>
+          <button type="button" class="button-primary product-order" id="detailOrder">Заказать <span aria-hidden="true">↗</span></button>
+          <p class="product-caution">Список приборов и фактическая автономность зависят от нагрузки. Условия автоматического переключения проверяются для выбранной модели и схемы подключения.</p>
+        </div>
+      </div>
+      <div class="detail-secondary"><div><span>Сначала подбираем</span><strong>Проверим суммарную нагрузку</strong></div><div><span>До оплаты</span><strong>Согласуем модель и цену</strong></div><div><span>Отдельно</span><strong>Рассчитаем монтаж по адресу</strong></div></div>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><div class="footer-brand"><strong>Электрозапас РФ</strong><span>Резервное питание для дома и бизнеса</span></div><div>Монтаж по согласованию.</div></div></footer>
+  </div>
+
+  <div class="mobile-product-bar" id="mobileProductBar" hidden>
+    <div><span>Стоимость оборудования</span><strong id="mobileProductPrice">194 600 ₽</strong></div>
+    <button type="button" class="button-primary" id="mobileProductOrder">Заказать <span aria-hidden="true">↗</span></button>
+  </div>
+
+  <dialog id="leadDialog" class="lead-dialog" aria-labelledby="leadTitle">
+    <form id="leadForm" method="dialog" novalidate>
+      <div class="dialog-top"><div><p class="section-kicker">ПОДБЕРЁМ ПО ЗАДАЧЕ</p><h2 id="leadTitle">Что должно работать,<br /><i>когда нет света?</i></h2></div><button type="button" class="dialog-close" id="closeDialog" aria-label="Закрыть">×</button></div>
+      <p class="dialog-intro">Не нужно знать киловатты. Отметьте главное — это займёт меньше минуты.</p>
+      <fieldset><legend>Для какого объекта?</legend><div class="choice-row" id="objectChoice"><label><input type="radio" name="object" value="Дом" checked/><span>Дом</span></label><label><input type="radio" name="object" value="Магазин"/><span>Магазин</span></label><label><input type="radio" name="object" value="Кафе"/><span>Кафе</span></label><label><input type="radio" name="object" value="Офис"/><span>Офис</span></label></div></fieldset>
+      <fieldset><legend>Что нельзя оставлять без питания?</legend><div class="appliances" id="applianceChoice"><label><input type="checkbox" name="appliance" value="Свет" checked/><span>Свет</span></label><label><input type="checkbox" name="appliance" value="Холодильник" checked/><span>Холодильник</span></label><label><input type="checkbox" name="appliance" value="Интернет" checked/><span>Интернет</span></label><label><input type="checkbox" name="appliance" value="Котёл"/><span>Котёл</span></label></div></fieldset>
+      <div class="form-fields"><label>Ваш телефон <input id="leadPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 9xx xxx-xx-xx" required /></label><label>Город или посёлок <input id="leadCity" name="city" autocomplete="address-level2" placeholder="Например, Луганск" /></label></div>
+      <input type="hidden" id="leadModel" name="model" value="Подбор системы" />
+      <label class="privacy-check"><input id="leadConsent" type="checkbox" required /><span>Согласен(на) на использование указанных данных для подготовки обращения</span></label>
+      <button type="submit" class="button-primary dialog-submit">Подготовить заявку <span aria-hidden="true">↗</span></button>
+      <p id="leadFeedback" class="lead-feedback" aria-live="polite"></p>
+      <p class="lead-honesty">Демонстрация дизайна. Здесь текст заявки копируется, но не отправляется: перед публикацией необходимо подключить подтверждённый контакт или сервер.</p>
+    </form>
+  </dialog>
+  <script src="app.js" defer></script>
+  <script>window.addEventListener("load",function(){if("serviceWorker" in navigator&&location.protocol==="https:"){navigator.serviceWorker.register("./sw.js").catch(function(){});}});</script>
+</body>
+</html>
