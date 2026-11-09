@@ -1,10 +1,7 @@
 
 /*
- * ЭЛЕКТРОЗАПАС РФ
- * Заказы через MAX — v7.4
- * GitHub Pages → Yandex Cloud → MAX
- *
- * Токен бота здесь НЕ хранится.
+ * Электрозапас РФ — заявки v7.6
+ * Работает через сайт и мини-приложение MAX.
  */
 
 (() => {
@@ -16,57 +13,43 @@
   const form = document.getElementById("leadForm");
   const dialog = document.getElementById("leadDialog");
   const feedback = document.getElementById("leadFeedback");
+  const button = form?.querySelector('button[type="submit"]');
 
-  const button = form?.querySelector(
-    'button[type="submit"]'
-  );
-
-  if (!form || !dialog || !feedback || !button) {
-    return;
-  }
+  if (!form || !button || !feedback) return;
 
   let sending = false;
   let sent = false;
 
   button.textContent = "Отправить заявку";
 
-  // Обновляем старые пояснения в форме
-  const privacyText = form.querySelector(
-    ".privacy-check span"
-  );
+  const consentLabel = form.querySelector(".privacy-check span");
 
-  if (privacyText) {
-    privacyText.textContent =
-      "Согласен(на) на обработку моего телефона " +
-      "и сведений о заявке для связи со мной";
+  if (consentLabel) {
+    consentLabel.textContent =
+      "Согласен(на) на обработку телефона и данных заявки " +
+      "для связи со мной";
   }
 
   const note = form.querySelector(".lead-honesty");
 
   if (note) {
     note.textContent =
-      "Заявка поступит менеджеру в MAX. " +
+      "Заявка отправляется менеджеру в MAX. " +
       "Монтаж рассчитывается индивидуально.";
   }
 
-  function showStatus(message, isError = false) {
+  function status(message, error = false) {
     feedback.textContent = message;
-    feedback.classList.toggle("error", isError);
+    feedback.classList.toggle("error", error);
   }
 
-  // Получаем подписанные данные запуска MAX
-  function getMaxInitData() {
-    const bridgeData = window.WebApp?.initData;
-
-    if (
-      typeof bridgeData === "string" &&
-      bridgeData.length > 0
-    ) {
-      return bridgeData;
+  function getMaxData() {
+    if (typeof window.WebApp?.initData === "string") {
+      if (window.WebApp.initData) {
+        return window.WebApp.initData;
+      }
     }
 
-    // Резервный вариант без дополнительной
-    // загрузки библиотеки MAX Bridge
     const fragment = new URLSearchParams(
       window.location.hash.slice(1)
     );
@@ -74,94 +57,51 @@
     return fragment.get("WebAppData") || "";
   }
 
-  // Перехватываем отправку раньше старого
-  // обработчика копирования текста из app.js
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    // Блокируем старый обработчик копирования
     event.stopImmediatePropagation();
 
     if (sending || sent) return;
 
-    showStatus("");
+    status("");
 
-    const phoneField =
-      document.getElementById("leadPhone");
-
-    const consentField =
-      document.getElementById("leadConsent");
-
-    const phone = (phoneField?.value || "").trim();
+    const phoneField = document.getElementById("leadPhone");
+    const phone = phoneField.value.trim();
     const digits = phone.replace(/\D/g, "");
 
     if (
-      !/^[+0-9() -]{10,23}$/.test(phone) ||
+      !/^[+0-9() \-]{10,23}$/.test(phone) ||
       digits.length < 10 ||
       digits.length > 15
     ) {
-      phoneField?.setAttribute(
-        "aria-invalid", "true"
-      );
-
-      showStatus(
-        "Проверьте номер телефона: " +
-        "нужно от 10 до 15 цифр.",
-        true
-      );
-
-      phoneField?.focus();
+      status("Укажите правильный номер телефона.", true);
+      phoneField.focus();
       return;
     }
 
-    phoneField?.setAttribute(
-      "aria-invalid", "false"
-    );
-
-    if (!consentField?.checked) {
-      showStatus(
-        "Подтвердите согласие на обработку данных.",
-        true
-      );
-
-      consentField?.focus();
+    if (!document.getElementById("leadConsent").checked) {
+      status("Подтвердите согласие на обработку данных.", true);
       return;
     }
 
-    const initData = getMaxInitData();
-
-    if (!initData) {
-      showStatus(
-        "Для отправки заявки откройте каталог " +
-        "через бота «Электрозапас РФ» внутри MAX.",
-        true
-      );
-      return;
-    }
-
-    const selected = Array.from(
+    const appliances = Array.from(
       form.querySelectorAll(
         'input[name="appliance"]:checked'
       )
-    ).map(item => item.value);
+    ).map(input => input.value);
 
     const payload = {
-      init_data: initData,
-      phone: phone,
+      init_data: getMaxData(),
+      phone,
       consent: true,
-
-      model:
-        document.getElementById("leadModel")
-          ?.value || "Нужен подбор",
-
-      object:
-        form.querySelector(
-          'input[name="object"]:checked'
-        )?.value || "Не указан",
-
-      city:
-        document.getElementById("leadCity")
-          ?.value.trim() || "Не указан",
-
-      appliances: selected
+      model: document.getElementById("leadModel").value,
+      object: form.querySelector(
+        'input[name="object"]:checked'
+      )?.value || "Не указан",
+      city: document.getElementById("leadCity").value.trim(),
+      appliances
     };
 
     sending = true;
@@ -170,67 +110,52 @@
 
     const controller = new AbortController();
 
-    const timeout = setTimeout(() => {
-      controller.abort();
-    }, 15000);
+    const timeout = setTimeout(
+      () => controller.abort(), 15000
+    );
 
     try {
       const response = await fetch(ENDPOINT, {
         method: "POST",
         mode: "cors",
-
         headers: {
           "Content-Type": "application/json"
         },
-
         body: JSON.stringify(payload),
         signal: controller.signal,
         cache: "no-store"
       });
 
-      const data = await response.json()
-        .catch(() => ({}));
+      const result = await response.json().catch(() => ({}));
 
       if (
         !response.ok ||
-        data.ok !== true ||
-        data.message_sent !== true
+        result.ok !== true ||
+        result.message_sent !== true
       ) {
         throw new Error(
-          data.error ||
-          "Сервер не подтвердил отправку заявки."
+          result.error || "Отправка не подтверждена"
         );
       }
 
       sent = true;
-
       button.textContent = "Заявка отправлена";
-
-      showStatus(
-        "Заявка передана менеджеру. " +
+      status(
+        "Заявка поступила менеджеру в MAX. " +
         "С вами свяжутся по указанному номеру."
       );
 
     } catch (error) {
+      const message = error.name === "AbortError"
+        ? "Нет подтверждения из-за слабой связи. " +
+          "Перед повторной отправкой уточните, " +
+          "не поступила ли заявка."
+        : error instanceof TypeError
+          ? "Не удалось связаться с сервером. " +
+            "Проверьте интернет."
+          : error.message || "Не удалось отправить заявку.";
 
-      let message;
-
-      if (error.name === "AbortError") {
-        message =
-          "Не удалось подтвердить отправку: " +
-          "связь нестабильна. Проверьте соединение.";
-      } else if (error instanceof TypeError) {
-        message =
-          "Нет связи с сервером заявок. " +
-          "Проверьте интернет и повторите попытку.";
-      } else {
-        message =
-          error.message ||
-          "Не удалось отправить заявку.";
-      }
-
-      showStatus(message, true);
-
+      status(message, true);
       button.disabled = false;
       button.textContent = "Повторить отправку";
 
@@ -238,15 +163,11 @@
       clearTimeout(timeout);
       sending = false;
     }
-
   }, true);
 
-  // Позволяем оформить следующую заявку
-  // после закрытия формы
-  dialog.addEventListener("close", () => {
+  dialog?.addEventListener("close", () => {
     sent = false;
     button.disabled = false;
     button.textContent = "Отправить заявку";
   });
-
 })();
