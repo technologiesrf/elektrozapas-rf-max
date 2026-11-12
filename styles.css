@@ -338,3 +338,27 @@ h2 i{font-weight:normal;font-style:italic;color:var(--pine)}
   }
 }
 
+/* PRICING_STOCK_STAKHANOV_20261112 */
+.catalog-availability, .detail-availability {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px 11px;
+  line-height: 1.4;
+  margin: 5px 0 15px;
+}
+.catalog-availability strong, .detail-availability strong {
+  color: #285d3a;
+  font-size: 13px;
+  font-weight: 750;
+}
+.catalog-availability small, .detail-availability small {
+  color: #6B6560;
+  font-size: 12px;
+  font-weight: 550;
+}
+.detail-availability[hidden] { display: none !important; }
+@media (max-width: 600px) {
+  .catalog-availability strong, .detail-availability strong { font-size: 13px; }
+  .catalog-availability small, .detail-availability small { font-size: 12px; }
+}

@@ -6,14 +6,14 @@
  * при нестабильном интернете.
  */
 
-const CACHE = "elektrozapas-rf-max-lite-v7-5";
+const CACHE = "elektrozapas-rf-max-lite-v7-6-prices";
 
 const SHELL = [
   "./",
   "./index.html",
   "./styles.css",
-  "./app.js",
-  "./orders.js?v=74"
+  "./app.js?v=20261112",
+  "./orders.js?v=76"
 ];
 
 self.addEventListener("install", event => {
