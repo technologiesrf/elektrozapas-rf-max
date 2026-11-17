@@ -6,13 +6,13 @@
  * при нестабильном интернете.
  */
 
-const CACHE = "elektrozapas-rf-max-lite-v7-6-prices";
+const CACHE = "elektrozapas-rf-max-lite-v7-7-dom5-170k";
 
 const SHELL = [
   "./",
   "./index.html",
   "./styles.css",
-  "./app.js?v=20261112",
+  "./app.js?v=20261117-170000",
   "./orders.js?v=76"
 ];
 

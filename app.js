@@ -5,48 +5,50 @@
   'use strict';
   const PRODUCTS = [
     {
-      id: 'start36', name: 'СТАРТ 3.6', segment: 'Для дома и дачи', power: '3,6 кВт', capacity: '5,12 кВт·ч', price: 107000,
+      id: 'start36', name: 'СТАРТ 3.6', segment: 'Для дома и дачи', power: '3,6 кВт', capacity: '5,12 кВт·ч', price: 121300,
       image: 'assets/start36.webp', intro: 'Резерв для самого важного',
       short: 'Свет, интернет и выбранные домашние приборы.',
       benefits: ['Сохраните освещение в важных комнатах', 'Оставайтесь на связи при отключении сети', 'Подбираем нагрузку, чтобы не переплачивать за лишнюю мощность']
     },
     {
-      id: 'home5', name: 'ДОМ 5', segment: 'Для дома', power: '5 кВт', capacity: '5,12 кВт·ч', price: 150000,
+      id: 'home5', name: 'ДОМ 5', segment: 'Для дома', power: '5 кВт', capacity: '5,12 кВт·ч', price: 170000,
       image: 'assets/home5.webp', intro: 'Домашний резерв на случай ежедневных отключений',
       short: 'Свет, холодильник, интернет и котёл — по подбору нагрузки.',
       benefits: ['Свет и связь могут оставаться доступными во время отключений', 'Резерв для холодильника и котла — после проверки их нагрузки', 'Питание от аккумулятора без топлива и ручного запуска генератора', 'Монтаж рассчитывается отдельно']
     },
     {
-      id: 'home6', name: 'ДОМ 6', segment: 'Для дома и малого бизнеса', power: '6 кВт', capacity: '10,24 кВт·ч', price: 185300,
+      id: 'home6', name: 'ДОМ 6', segment: 'Для дома и малого бизнеса', power: '6 кВт', capacity: '10,24 кВт·ч', price: 210000,
       image: 'assets/home6.webp', intro: 'Больше запас энергии для дома',
       short: 'Больше времени для важных приборов при отключении.',
       benefits: ['Больший запас энергии, чем у базовых домашних систем', 'Подходит для нескольких приоритетных линий после расчёта', 'Может поддерживать работу связи, освещения и выбранной техники']
     },
     {
-      id: 'home6plus', name: 'ДОМ 6+', segment: 'Для дома', power: '6 кВт', capacity: '16 кВт·ч', price: 225800,
+      id: 'home6plus', name: 'ДОМ 6+', segment: 'Для дома', power: '6 кВт', capacity: '16 кВт·ч', price: 255900,
       image: 'assets/home6plus.webp', intro: 'Когда отключения затягиваются',
       short: 'Увеличенный аккумулятор для длительных отключений.',
       benefits: ['Больше запас энергии для тех же выбранных нагрузок', 'Помогает переживать более длительные отключения', 'Подбираем по реальному расходу и желаемому времени работы']
     },
     {
-      id: 'start36plus', name: 'СТАРТ 3.6+', segment: 'Для дома и дачи', power: '3,6 кВт', capacity: '7,68 кВт·ч', price: 126000,
+      id: 'start36plus', name: 'СТАРТ 3.6+', segment: 'Для дома и дачи', power: '3,6 кВт', capacity: '7,68 кВт·ч', price: 142800,
       image: 'assets/start36plus.webp', intro: 'Дольше работает важное',
       short: 'Та же мощность, но больше энергии в аккумуляторе.',
       benefits: ['Продлевает работу важных приборов при умеренной нагрузке', 'Сохраняет класс мощности 3,6 кВт', 'Подходит, когда продолжительность важнее числа приборов']
     },
     {
-      id: 'business12', name: 'БИЗНЕС 12', segment: 'Для бизнеса', power: '12 кВт', capacity: '20 кВт·ч', price: 299300,
+      id: 'business12', name: 'БИЗНЕС 12', segment: 'Для бизнеса', power: '12 кВт', capacity: '20 кВт·ч', price: 339200,
       image: 'assets/business12.webp', intro: 'Резерв для рабочих процессов',
       short: 'Подбор для магазинов, мастерских и офисов.',
       benefits: ['Подберём резерв для важных линий вашего объекта', 'Рассчитаем работу холодильного и кассового оборудования', 'Заранее согласуем мощность и требования к подключению']
     },
     {
-      id: 'business12plus', name: 'БИЗНЕС 12+', segment: 'Для бизнеса', power: '12 кВт', capacity: '32 кВт·ч', price: 436100,
+      id: 'business12plus', name: 'БИЗНЕС 12+', segment: 'Для бизнеса', power: '12 кВт', capacity: '32 кВт·ч', price: 494200,
       image: 'assets/business12plus.webp', intro: 'Больше энергии для бизнеса',
       short: 'Решение для объектов с продолжительными отключениями.',
       benefits: ['Более ёмкий аккумулятор для приоритетных нагрузок', 'Рассчитаем питание касс, связи и части оборудования', 'Технические условия фиксируются после обследования объекта']
     },
   ];
+  // Временно не показываем базовые комплекты СТАРТ; их карточки и цены сохранены в PRODUCTS.
+  const CATALOG_PRODUCTS = PRODUCTS.filter(product => !['start36', 'start36plus'].includes(product.id));
   const $ = id => document.getElementById(id);
   const money = number => `${new Intl.NumberFormat('ru-RU').format(number)} ₽`;
   const grid = $('modelsGrid');
@@ -84,17 +86,17 @@
 
   function renderCards() {
     grid.replaceChildren();
-    const visible = showAll ? PRODUCTS : PRODUCTS.slice(0, 4);
+    const visible = showAll ? CATALOG_PRODUCTS : CATALOG_PRODUCTS.slice(0, 3);
     visible.forEach(product => grid.append(createCard(product)));
     $('moreModels').setAttribute('aria-expanded', showAll ? 'true' : 'false');
-    $('moreModels').innerHTML = showAll ? 'Свернуть каталог <span aria-hidden="true">↑</span>' : 'Показать все 7 моделей <span aria-hidden="true">↓</span>';
+    $('moreModels').innerHTML = showAll ? 'Свернуть каталог <span aria-hidden="true">↑</span>' : `Показать все ${CATALOG_PRODUCTS.length} моделей <span aria-hidden="true">↓</span>`;
   }
 
   function scrollTop() {
     window.scrollTo({top: 0, behavior: 'instant'});
   }
   function showProduct(id) {
-    const product = PRODUCTS.find(p => p.id === id);
+    const product = CATALOG_PRODUCTS.find(p => p.id === id);
     if (!product) return;
     current = product;
     landing.hidden = true;
