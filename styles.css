@@ -362,3 +362,40 @@ h2 i{font-weight:normal;font-style:italic;color:var(--pine)}
   .catalog-availability strong, .detail-availability strong { font-size: 13px; }
   .catalog-availability small, .detail-availability small { font-size: 12px; }
 }
+
+
+/* All-in-One explanation — ДОМ 5; продолжение фирменной палитры сайта */
+.aio-section{padding-block:76px 94px}
+.aio-heading{max-width:970px;margin-bottom:34px}
+.aio-heading h2{margin-bottom:16px}
+.aio-lead{max-width:865px;font-size:17px;line-height:1.75;color:#514E4A;margin:0}
+.aio-composition{display:grid;grid-template-columns:minmax(270px,.82fr) minmax(440px,1.18fr);gap:20px;align-items:stretch}
+.aio-device{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;flex-direction:column;overflow:hidden;border:1px solid #E2DDD5;border-radius:13px;background:linear-gradient(145deg,#ECE8E1,#F7F4EF);padding:22px 25px 16px}
+.aio-device:before{position:absolute;content:"";width:70%;height:58%;border-radius:50%;background:#FFFFFF;filter:blur(39px);opacity:.65;top:13%;left:15%}
+.aio-device img{position:relative;object-fit:contain;width:100%;max-width:290px;max-height:290px;filter:drop-shadow(0 15px 15px #1A2A4A19)}
+.aio-device-caption{position:relative;width:100%;margin-top:auto;padding-top:15px;border-top:1px solid #D7CDC0;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.aio-device-caption strong{font-weight:800;color:var(--navy);font-size:20px}
+.aio-device-caption span{font-size:12px;color:#675F57;text-align:right}
+.aio-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.aio-feature{background:#fff;border:1px solid #E5DFD6;border-radius:11px;padding:23px 23px 19px;min-height:192px}
+.aio-number{font-size:10px;color:#93764A;letter-spacing:1.45px;font-weight:800}
+.aio-feature h3{font-size:19px;line-height:1.2;letter-spacing:-.5px;color:var(--navy);margin:17px 0 10px}
+.aio-feature p{font-size:13px;line-height:1.65;color:#585551;margin:0}
+.aio-how{background:var(--navy);color:var(--cream);border-radius:13px;margin-top:21px;padding:34px 37px 32px}
+.aio-how .section-kicker{color:#DCC7A5;font-size:10px;margin-bottom:10px}
+.aio-how-intro h3{font:normal 29px/1.22 var(--heading);letter-spacing:-.5px;max-width:720px;margin:0 0 26px;color:#F9F7F2}
+.aio-how-intro h3 em{font-style:italic;color:#E2C999}
+.aio-how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}
+.aio-how-grid>div{padding:21px 20px 5px 0;border-top:1px solid #8794A755;display:flex;flex-direction:column;gap:9px}
+.aio-how-grid span{font:italic 21px var(--heading);color:#D4B779}
+.aio-how-grid strong{font-weight:750;font-size:15px}
+.aio-how-grid p{font-size:13px;line-height:1.65;color:#D5D8DE;margin:0}
+.aio-footnote{font-size:12px;line-height:1.7;color:#6C6760;margin:19px 0 0;max-width:1120px}
+.aio-footnote strong{color:var(--navy)}
+.detail-aio{padding:21px 23px;background:#F0ECE5;border:1px solid #E1DAD0;border-radius:9px;margin:6px 0 25px}
+.detail-aio strong{font-size:14px;font-weight:800;color:var(--navy)}
+.detail-aio p{font-size:14px;line-height:1.55;margin:9px 0 8px}
+.detail-aio small{display:block;font-size:12px;line-height:1.55;color:#675F56}
+.detail-aio[hidden]{display:none!important}
+@media(max-width:1060px){.aio-composition{grid-template-columns:1fr}.aio-device{min-height:315px}.aio-device img{max-height:250px}}
+@media(max-width:620px){.aio-section{padding-block:58px 62px}.aio-lead{font-size:14px;line-height:1.7}.aio-composition{gap:14px}.aio-device{min-height:335px}.aio-device img{max-height:235px}.aio-device-caption{align-items:flex-start;flex-direction:column;gap:3px}.aio-device-caption span{text-align:left}.aio-features{grid-template-columns:1fr;gap:10px}.aio-feature{min-height:0;padding:18px 19px}.aio-feature h3{font-size:17px;margin-top:9px;margin-bottom:6px}.aio-how{padding:25px 22px}.aio-how-intro h3{font-size:24px}.aio-how-grid{grid-template-columns:1fr;gap:3px}.aio-how-grid>div{padding:14px 0 12px}.aio-footnote{font-size:11px}.detail-aio{padding:17px 18px}}
