@@ -399,3 +399,81 @@ h2 i{font-weight:normal;font-style:italic;color:var(--pine)}
 .detail-aio[hidden]{display:none!important}
 @media(max-width:1060px){.aio-composition{grid-template-columns:1fr}.aio-device{min-height:315px}.aio-device img{max-height:250px}}
 @media(max-width:620px){.aio-section{padding-block:58px 62px}.aio-lead{font-size:14px;line-height:1.7}.aio-composition{gap:14px}.aio-device{min-height:335px}.aio-device img{max-height:235px}.aio-device-caption{align-items:flex-start;flex-direction:column;gap:3px}.aio-device-caption span{text-align:left}.aio-features{grid-template-columns:1fr;gap:10px}.aio-feature{min-height:0;padding:18px 19px}.aio-feature h3{font-size:17px;margin-top:9px;margin-bottom:6px}.aio-how{padding:25px 22px}.aio-how-intro h3{font-size:24px}.aio-how-grid{grid-template-columns:1fr;gap:3px}.aio-how-grid>div{padding:14px 0 12px}.aio-footnote{font-size:11px}.detail-aio{padding:17px 18px}}
+
+
+/* Sales layer — 24.11.2026: outcome, stock, price and direct contact */
+.hero-offer{display:flex;align-items:center;gap:25px;max-width:570px;padding:15px 0 14px;margin:2px 0 0;border-top:1px solid #FFFFFF35;border-bottom:1px solid #FFFFFF35}
+.hero-offer-price{display:flex;flex-direction:column;gap:2px;min-width:145px}
+.hero-offer-price strong{font-size:31px;line-height:1.05;letter-spacing:-1.2px;color:#F5DDAE;font-weight:850;font-variant-numeric:tabular-nums}
+.hero-offer-price span{font-size:11px;color:#C8D1D9}
+.hero-offer-stock{display:flex;align-items:flex-start;gap:10px}
+.hero-offer-stock .stock-dot{width:8px;height:8px;border-radius:50%;background:#9BC6A4;box-shadow:0 0 0 4px #9BC6A422;flex:none;margin-top:5px}
+.hero-offer-stock div{display:flex;flex-direction:column;gap:3px}
+.hero-offer-stock strong{font-size:14px;color:#F8F5EE}
+.hero-offer-stock small{font-size:11px;color:#C8D1D9;line-height:1.4}
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:15px 22px;margin-top:20px}
+.hero-actions .hero-cta{min-width:235px}
+.hero-phone{font-size:12px;color:#D5DDE2;display:flex;flex-direction:column;gap:2px}
+.hero-phone strong{font-size:14px;color:#F8F5EE;letter-spacing:.1px}
+.hero-phone:hover strong{text-decoration:underline;text-underline-offset:4px}
+.hero-underbutton{max-width:530px}
+.model-card-featured{border:2px solid #C4A35A;box-shadow:0 12px 30px #1A2A4A12}
+.model-card-featured .model-more{background:#1A2A4A;border-color:#1A2A4A;color:#F7F4EF}
+.model-card-featured .model-more:hover{background:#2F4F4F;border-color:#2F4F4F}
+.model-price-note{font-size:11px;color:var(--muted);margin:5px 0 12px}
+.model-card-featured .model-price-note{font-weight:650}
+.pain-section{padding-top:76px;padding-bottom:82px}
+.pain-section .section-heading{margin-bottom:26px}
+.pain-section .section-heading h2{max-width:760px}
+.pain-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.pain-card{background:#FFFFFF;border:1px solid #E6E0D7;border-radius:10px;padding:21px 18px 20px;min-height:188px}
+.pain-card>span{display:block;font-size:9px;font-weight:850;letter-spacing:1.4px;color:#92764A;margin-bottom:19px}
+.pain-card h3{font-size:18px;line-height:1.2;letter-spacing:-.4px;color:var(--navy);margin-bottom:9px}
+.pain-card p{font-size:12px;line-height:1.58;color:#625D57;margin:0}
+.pain-note{margin:19px 0 0;padding:17px 20px;border-left:3px solid var(--bronze);background:#F0ECE5;color:#514E49;font-size:13px;line-height:1.65}
+.pain-note strong{color:var(--navy)}
+.faq-section{padding-top:72px;padding-bottom:35px}
+.faq-section .section-heading{margin-bottom:23px}
+.faq-list{border-top:1px solid var(--line)}
+.faq-list details{border-bottom:1px solid var(--line);padding:0}
+.faq-list summary{position:relative;cursor:pointer;list-style:none;padding:19px 42px 19px 0;color:var(--navy);font-size:16px;font-weight:750}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary:after{content:"+";position:absolute;right:5px;top:14px;font-size:25px;font-weight:400;color:#92764A}
+.faq-list details[open] summary:after{content:"−"}
+.faq-list details p{max-width:900px;padding:0 38px 19px 0;margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+.final-cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:13px;flex:none}
+.final-cta-actions>a{color:#F7F4EF;font-size:14px;font-weight:750;text-underline-offset:4px}
+.final-cta-actions>a:hover{text-decoration:underline}
+.product-phone{font-size:13px;color:var(--muted);margin:12px 0 0}
+.product-phone a{font-weight:800;color:var(--navy);white-space:nowrap}
+.product-phone a:hover{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1060px){
+ .pain-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .hero-offer{gap:17px}
+}
+@media(max-width:680px){
+ .hero-offer{align-items:flex-start;flex-direction:column;gap:11px;padding:13px 0}
+ .hero-offer-price{flex-direction:row;align-items:baseline;gap:9px}
+ .hero-offer-price strong{font-size:29px}
+ .hero-actions{align-items:stretch;flex-direction:column;gap:13px;margin-top:17px}
+ .hero-actions .hero-cta{width:100%;min-width:0}
+ .hero-phone{align-items:center;text-align:center;flex-direction:row;justify-content:center;gap:6px}
+ .hero-phone strong{font-size:13px}
+ .pain-section{padding-block:54px 59px}
+ .pain-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .pain-card{padding:16px 14px;min-height:165px}
+ .pain-card>span{margin-bottom:14px;font-size:8px}
+ .pain-card h3{font-size:16px}
+ .pain-card p{font-size:12px}
+ .pain-note{font-size:12px;padding:14px 15px}
+ .faq-section{padding-block:52px 24px}
+ .faq-list summary{font-size:14px;padding-block:16px}
+ .faq-list details p{font-size:13px;padding-bottom:16px}
+ .final-cta-actions{width:100%;align-items:stretch}
+ .final-cta-actions .button-primary{width:100%}
+ .final-cta-actions>a{text-align:center}
+}
+@media(max-width:375px){
+ .pain-grid{grid-template-columns:1fr}
+ .hero-offer-price strong{font-size:27px}
+}
