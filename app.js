@@ -12,9 +12,9 @@
     },
     {
       id: 'home5', name: 'ДОМ 5', segment: 'Для дома', power: '5 кВт', capacity: '5,12 кВт·ч', price: 170000,
-      image: 'assets/home5.webp', intro: 'All-in-One: инвертор и аккумулятор уже объединены в одном корпусе',
-      short: 'Готовая система в одном корпусе: инвертор 5 кВт + LiFePO₄ 5,12 кВт·ч.',
-      benefits: ['В одном заводском корпусе — инвертор 5 кВт и батарея LiFePO₄ 5,12 кВт·ч', 'Выход 220/230 В с чистой синусоидой в инверторном режиме', 'Предусмотрены зарядка от сети, управление аккумулятором и защитная BMS', 'Свет, интернет, котёл и холодильник можно подключать после расчёта нагрузки', 'Подключение солнечных панелей возможно по совместимой схеме', 'Монтаж, защитная автоматика и прокладка резервных линий рассчитываются отдельно']
+      image: 'assets/home5.webp', intro: 'Домашняя система, которая сама включает резерв при отключении электричества',
+      short: 'Автоматически переводит подключённую домашнюю сеть на аккумулятор — без ручного запуска.',
+      benefits: ['Инвертор 5 кВт и аккумулятор LiFePO₄ 5,12 кВт·ч уже объединены в одном корпусе', 'Заряжается от обычной электросети; солнечные панели для резервной работы не обязательны', 'При отключении автоматически переходит на аккумулятор, после восстановления возвращается на сеть', 'Питает приборы, подключённые к резервируемой домашней сети, в пределах возможностей системы', 'Освещение, холодильник, интернет, котёл, насосы и бытовая техника — по суммарной нагрузке и пусковым токам', 'Монтаж, защитная автоматика и подключение к домашней сети рассчитываются отдельно']
     },
     {
       id: 'home6', name: 'ДОМ 6', segment: 'Для дома и малого бизнеса', power: '6 кВт', capacity: '10,24 кВт·ч', price: 210000,
@@ -61,7 +61,7 @@
 
   function createCard(product) {
     const card = document.createElement('article');
-    card.className = 'model-card';
+    card.className = product.id === 'home5' ? 'model-card model-card-featured' : 'model-card';
     card.dataset.product = product.id;
     card.innerHTML = `
       <div class="model-art"><img src="${product.image}" alt="Внешний вид системы ${product.name}" loading="lazy" decoding="async" /></div>
@@ -71,14 +71,14 @@
         <p class="model-details">${product.power} · ${product.capacity}</p>
         <p class="model-simple">${product.short}</p>
         <p class="model-price">${money(product.price)}</p>
-        
-        <button type="button" class="model-more" data-product="${product.id}" aria-label="Подробнее о модели ${product.name}">Посмотреть <span aria-hidden="true">→</span></button>
+        <p class="model-price-note">Стоимость оборудования · монтаж отдельно</p>
+        <button type="button" class="model-more" data-product="${product.id}" aria-label="Подробнее о модели ${product.name}">${product.id === 'home5' ? 'Подробнее и купить' : 'Посмотреть'} <span aria-hidden="true">→</span></button>
       </div>`;
     // PRICING_STOCK_STAKHANOV_20261112
     if (product.id === 'home5') {
       const availability = document.createElement('p');
       availability.className = 'catalog-availability';
-      availability.innerHTML = '<strong>В наличии · г. Стаханов</strong><small>Количество уточняйте</small>';
+      availability.innerHTML = '<strong>В наличии · г. Стаханов</strong><small>Можно обсудить покупку сейчас</small>';
       card.querySelector('.model-price')?.insertAdjacentElement('afterend', availability);
     }
     return card;
@@ -117,14 +117,15 @@
       detailAvailability.className = 'detail-availability';
       $('detailPrice').insertAdjacentElement('afterend', detailAvailability);
     }
-    detailAvailability.innerHTML = '<strong>В наличии · г. Стаханов</strong><small>Количество уточняйте</small>';
+    detailAvailability.innerHTML = '<strong>В наличии · г. Стаханов</strong><small>Оборудование можно приобрести без ожидания поставки</small>';
     detailAvailability.hidden = product.id !== 'home5';
     $('mobileProductPrice').textContent = money(product.price);
     $('mobileProductBar').hidden = false;
     $('mobileProductOrder').onclick = () => openLead(product);
     $('detailBenefits').replaceChildren();
     product.benefits.forEach(item => {const li = document.createElement('li'); li.textContent = item; $('detailBenefits').append(li);});
-    $('detailPhotoCaption').textContent = product.id === 'home5' ? 'Корпус UBetter из видеоматериала. Исполнение подтверждается при заказе.' : 'Вариант внешнего исполнения. Корпус и артикул уточняются до заказа.';
+    $('detailPhotoCaption').textContent = product.id === 'home5' ? 'Фото устройства ДОМ 5 из предоставленного видеоматериала.' : 'Вариант внешнего исполнения. Корпус и артикул уточняются до заказа.';
+    $('detailOrder').textContent = product.id === 'home5' ? 'Обсудить покупку' : 'Оставить заявку';
     $('detailOrder').onclick = () => openLead(product);
     document.title = `${product.name} — ${money(product.price)} | Электрозапас РФ`;
     scrollTop();
@@ -162,16 +163,16 @@
     });
   });
 
-  function openLead(product = null) {
+  function openLead(product = null, presetModel = null) {
     leadProduct = product || null;
-    $('leadModel').value = product ? product.name : 'Нужен подбор';
+    $('leadModel').value = product ? product.name : (presetModel || 'Нужен подбор');
     $('leadFeedback').textContent = '';
     $('leadFeedback').classList.remove('error');
     $('leadPhone').setAttribute('aria-invalid','false');
     if (!dialog.open) dialog.showModal();
     document.body.classList.add('modal-open');
   }
-  document.querySelectorAll('[data-open-lead]').forEach(button => button.addEventListener('click', () => openLead(current)));
+  document.querySelectorAll('[data-open-lead]').forEach(button => button.addEventListener('click', () => openLead(current, button.dataset.leadModel || null)));
   $('closeDialog').addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
   dialog.addEventListener('click', event => {if (event.target === dialog) dialog.close();});
