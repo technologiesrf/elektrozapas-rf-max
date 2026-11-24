@@ -6,7 +6,7 @@
  * при нестабильном интернете.
  */
 
-const CACHE = "elektrozapas-rf-max-lite-v7-9-sales-dom5";
+const CACHE = "elektrozapas-rf-max-lite-v7-10-sales-max";
 
 const SHELL = [
   "./",
